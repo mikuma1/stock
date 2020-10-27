@@ -1,0 +1,49 @@
+<mxfile host="65bd71144e" modified="2020-10-27T09:30:26.586Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" version="13.6.5" etag="AyrJMSDg3TlxWNPASrI5">
+    <diagram id="h_XX3TAHcFlQYmFa2eWL" name="ページ1">
+        <mxGraphModel dx="1046" dy="584" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;font color=&quot;#000000&quot;&gt;サインイン/ログイン&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#36393d;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="80" width="140" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;font color=&quot;#000000&quot;&gt;トップページ&lt;br&gt;消耗品一覧画面&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#36393d;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="80" width="140" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font color=&quot;#000000&quot;&gt;消耗品詳細画面&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#36393d;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="200" width="140" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;font color=&quot;#000000&quot;&gt;消耗品編集画面&lt;br&gt;(管理者のみ)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#36393d;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="200" width="140" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;font color=&quot;#000000&quot;&gt;消耗品新規登録画面&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#36393d;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="80" width="140" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;font color=&quot;#000000&quot;&gt;ユーザー編集画面&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#36393d;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="320" width="140" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;font color=&quot;#000000&quot;&gt;ユーザー一覧画面&lt;br&gt;(管理者のみ)&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#36393d;fillColor=#FFFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="440" width="140" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
