@@ -55,6 +55,14 @@
   background-color: #ffd803;
 }
 
+.user-index {
+  text-decoration: none;
+  color: #2d334a;
+  display: block;
+  border: 2px solid #ffd803;
+  margin: 10px;
+}
+
 .logout {
   text-decoration: none;
   color: #2d334a;

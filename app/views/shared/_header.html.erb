@@ -6,6 +6,7 @@
       <% if user_signed_in? %>
         <li><%= link_to current_user.name, edit_user_path(current_user), class: "user-name btn" %></li> 
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout btn btn-outline-warning"%> </li> 
+        <li><%= link_to 'ユーザー一覧', users_path, class: "user-index btn btn-outline-warning"%> </li> 
         <li><%= link_to '消耗品登録', '#', class: "item-new btn btn-outline-warning"%>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login btn btn-outline-warning" %></li>
