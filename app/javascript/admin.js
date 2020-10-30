@@ -1,6 +1,5 @@
 function admin() {
   const admins = document.querySelectorAll(".admin-btn");
-  const admins1 = document.querySelectorAll(".admin") 
   admins.forEach(function (admin) {
     if (admin.getAttribute("data-load") != null) {
       return null;
@@ -18,12 +17,15 @@ function admin() {
           return null;          
         }
         const item = XHR.response.user;
+        const prev = admin.parentNode.previousElementSibling;
         if (item.admin === true) {
           admin.setAttribute("user-admin", "true")
           admin.setAttribute("value", "管理者から外す")
+          prev.innerHTML=`管理者`
         } else if (item.admin === false) {
           admin.setAttribute("user-admin", "false")
           admin.setAttribute("value", "管理者に変更")
+          prev.innerHTML=``
         }
       };
     });
