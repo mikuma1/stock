@@ -36,7 +36,7 @@
 | name                   | string     | null: false                    |
 | info                   | text       |                                |
 | category_id            | integer    | null: false                    |
-| url                    | string     | null: false                    |
+| url                    | text       | null: false                    |
 | stock_quantity         | integer    | null: false                    |
 | standard_inventory     | integer    | null: false                    |
 | ordering_unit          | integer    | null: false                    |
