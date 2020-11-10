@@ -10,6 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :ordering_unit,     null: false
       t.integer :price,             null: false
       t.string :place,              null: false
+      t.references :organization,   null: false, foreign_key: true
       t.timestamps
     end
   end

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_organization
+
   def index
-    @users = User.all
+    @users = User.where(organization_id: params[:id])
   end
 
   def edit
@@ -28,7 +30,15 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :organization_id)
+  end
+
+  def set_organization
+    begin
+      @organization = Organization.find(params[:id])
+    rescue
+      @organization = Organization.find(current_user.organization_id)
+    end
   end
 
 end
