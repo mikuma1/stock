@@ -2,7 +2,7 @@
   <%= render "shared/header"%>
   <div class=main>
     <h2>消耗品登録</h2>
-    <%= form_with model: @item, local: true do |f| %>
+    <%= form_with model: [@organization, @item], local: true do |f| %>
 
     <%= render 'shared/error_messages', model: @item %>
 
@@ -92,6 +92,10 @@
       </div>
       <%= f.text_field :place, class:"items-text", id:"item-place", placeholder:"保管場所" ,maxlength:"40" %>
     </div>
+
+    <div class="field">
+      <%= f.hidden_field :organization_id, value: params[:organization_id] %>
+     </div>
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
