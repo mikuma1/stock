@@ -25,7 +25,7 @@ table {
   border-collapse: collapse;
   margin: 0 auto;
   padding: 0;
-  width: 600px;
+  width: 90vw;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 0 15px -6px #00000073;
@@ -42,10 +42,10 @@ table td {
 }
 
 table  th {
-  width: 20%;
+  width: auto;
   padding: 10px 0;
   font-size: 14px;
-  padding: 15px;
+  padding: 10px;
   background-color: #ffd803;
   color:#272343;
   text-align: center;
@@ -53,7 +53,7 @@ table  th {
 
 table tr{
   text-align: center;
-  width: 20%;
+  width: auto;
   padding: 20px 0;
   background-color: #fffffe;
   color:#3a3a3a;
