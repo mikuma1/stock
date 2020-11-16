@@ -2,6 +2,7 @@
   <%= render "shared/header"%>
   <div class=main>
     <%= link_to '編集', edit_organization_item_path(organization_id: @organization.id, id: @item.id) %>
+    <%= link_to '削除', organization_item_path(organization_id: @organization.id, id: @item.id), method: :delete %>
     <table>
       <tr>
         <th>画像</th>
