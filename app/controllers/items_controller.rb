@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_organization_login
   before_action :set_organization
+  before_action :set_item, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: :index
 
   def index
@@ -21,7 +22,17 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to organization_item_path(organization_id: params[:organization_id], id: params[:id])
+    else
+      render :edit
+    end
   end
 
   private
@@ -38,9 +49,13 @@ class ItemsController < ApplicationController
       redirect_to login_path
     end
   end
+  
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def move_to_organization_login
     redirect_to login_path unless current_organization?(@organization)
   end
-  
+
 end
