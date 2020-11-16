@@ -20,16 +20,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :info, :category_id, :url, :stock_quantity, :standard_inventory, :ordering_unit, :price, :place, :image, :organization_id)
   end
 
   def set_organization
-    if params[:id]
-      @organization = Organization.find(params[:id])
-    elsif user_signed_in?
+    if user_signed_in?
       @organization = Organization.find(current_user.organization_id)
+    elsif params[:id]
+      @organization = Organization.find(params[:id])
     else
       redirect_to login_path
     end

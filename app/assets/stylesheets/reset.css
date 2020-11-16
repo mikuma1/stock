@@ -128,3 +128,8 @@ legend {
 a:hover {
   text-decoration: none;
 }
+
+body:first-line {
+  line-height: 0;
+}
+
