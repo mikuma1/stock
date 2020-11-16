@@ -1,6 +1,7 @@
 <div class='wrapper'>
   <%= render "shared/header"%>
   <div class=main>
+    <%= link_to '編集', edit_organization_item_path(organization_id: @organization.id, id: @item.id) %>
     <table>
       <tr>
         <th>画像</th>
@@ -44,7 +45,6 @@
       <tr>
         <th>場所</th>
         <td><%= @item.place %></td>
-      </tr>
       </tr>
     </table>
   </div>
