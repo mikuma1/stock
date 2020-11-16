@@ -22,7 +22,10 @@ index
         <% @items.each do |item| %>
           <tr>
             <td><%= image_tag item.image.variant(resize: '200x100' ) %></td>
-            <td><%= item.name %></td>
+            <td>
+            <%= item.name %><br>
+            <%= link_to '詳細', organization_item_path(organization_id: @organization.id, id: item.id)%>
+            </td>
             <td><%= link_to '発注画面へ', item.url, target: :_blank %></td>
             <td><%= item.stock_quantity%></td>
             <td><%= item.standard_inventory %></td>

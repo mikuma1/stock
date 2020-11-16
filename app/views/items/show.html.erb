@@ -1,0 +1,51 @@
+<div class='wrapper'>
+  <%= render "shared/header"%>
+  <div class=main>
+    <table>
+      <tr>
+        <th>画像</th>
+        <td><%= image_tag @item.image.variant(resize: '200x100' ) %></td>
+      </tr>
+      <tr>
+        <th>名称</th>
+        <td><%= @item.name %></td>
+      </tr>
+      <tr>
+        <th>URL</th>
+        <td>
+        <%= @item.url %><br>
+        <%= link_to '発注画面へ', @item.url, target: :_blank %>
+        </td>
+      </tr>
+      <tr>
+        <th>在庫</th>
+        <td><%= @item.stock_quantity%></td>
+      </tr>
+      <tr>
+        <th>発注目安在庫数</th>
+        <td><%= @item.standard_inventory %></td>
+      </tr>
+      <tr>
+        <th>発注単位</th>
+        <td><%= @item.ordering_unit %></td>
+      </tr>
+      <tr>
+        <th>入庫</th>
+        <td><%=  %></td>
+      </tr>
+      <tr>
+        <th>出庫</th>
+        <td><%=  %></td>
+      </tr>
+      <tr>
+        <th>カテゴリー</th>
+        <td><%= @item.category_id %></td>
+      </tr>
+      <tr>
+        <th>場所</th>
+        <td><%= @item.place %></td>
+      </tr>
+      </tr>
+    </table>
+  </div>
+</div>

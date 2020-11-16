@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :index]
   get "users/:id", to: 'users#admin'
   resources :organizations, only: [:new, :create] do
-    resources :items, only: [:index, :new, :create]
+    resources :items, only: [:index, :new, :create, :show]
   end
   get  '/login', to: 'login#new'
   post '/login', to: 'login#create'
