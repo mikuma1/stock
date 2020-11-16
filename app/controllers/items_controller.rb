@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
+    @items = Item.where(organization_id: @organization.id)
   end
 
   def  new
@@ -25,11 +26,11 @@ class ItemsController < ApplicationController
   end
 
   def set_organization
-    begin
+    if params[:id]
       @organization = Organization.find(params[:id])
-    rescue
+    elsif user_signed_in?
       @organization = Organization.find(current_user.organization_id)
-    rescue
+    else
       redirect_to login_path
     end
   end
