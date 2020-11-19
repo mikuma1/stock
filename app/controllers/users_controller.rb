@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_organization
+  before_action :set_organization, expect: :destroy
 
   def index
     @users = User.where(organization_id: params[:id])
@@ -16,6 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+
+    user = User.find(params[:id])
+    user.delete
+    redirect_to users_path(id: user.organization_id)
+  end
+  
   def admin
     user = User.find(params[:id])
     if user.admin

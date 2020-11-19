@@ -8,6 +8,7 @@
         <th>email</th>
         <th>管理者権限</th>
         <th></th>
+        <th>削除</th>
       </tr>
       <% @users.each do |user| %>
         <tr id="user" >
@@ -24,6 +25,9 @@
               <input type="button" value="管理者から外す" class="btn btn-outline-secondary admin-btn" user-id=<%= user.id %> user-admin=<%= user.admin %>>
             </td>
           <% end %>
+          <td>
+            <%= link_to '削除', user_path(id: user.id), method: :delete, class: "btn btn-outline-secondary" %>
+          </td>
         </tr>
       <% end %>
     </table>
