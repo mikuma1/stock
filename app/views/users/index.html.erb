@@ -1,0 +1,35 @@
+<div class='wrapper'>
+  <%# render "shared/header"%>
+  <div class=main>
+  <h2>ユーザー一覧</h2>
+   <table>
+      <tr>
+        <th>名前</th>
+        <th>email</th>
+        <th>管理者権限</th>
+        <th></th>
+        <th>削除</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr id="user" >
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <% unless user.admin %>
+            <td id="admin"></td>
+            <td id="admin-input">
+              <input type="button" value="管理者に変更" class="btn btn-outline-secondary admin-btn" user-id=<%= user.id %> user-admin=<%= user.admin %>>
+            </td>
+          <% else %>
+            <td id="admin">管理者</td>
+            <td id="admin-input">
+              <input type="button" value="管理者から外す" class="btn btn-outline-secondary admin-btn" user-id=<%= user.id %> user-admin=<%= user.admin %>>
+            </td>
+          <% end %>
+          <td>
+            <%= link_to '削除', user_path(id: user.id), method: :delete, class: "btn btn-outline-secondary" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
