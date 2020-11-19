@@ -1,0 +1,44 @@
+<% if @organization.nil? %>
+index
+<% elsif @items.nil? %>
+消耗品登録から消耗品を登録してください
+<% else %>
+  <div class='wrapper'>
+    <%= render "shared/header"%>
+    <div class=main>
+      <h2>消耗品一覧</h2>
+      <table>
+        <tr>
+          <th>画像</th>
+          <th>名称</th>
+          <th>URL</th>
+          <th>在庫</th>
+          <th>発注目安在庫数</th>
+          <th>発注単位</th>
+          <th>入庫</th>
+          <th>出庫</th>
+          <th>カテゴリー</th>
+          <th>場所</th>
+        </tr>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= image_tag item.image.variant(resize: '200x100' ) %></td>
+            <td>
+            <%= item.name %><br>
+            <%= link_to '詳細', organization_item_path(organization_id: @organization.id, id: item.id)%>
+            </td>
+            <td><%= link_to '発注画面へ', item.url, target: :_blank %></td>
+            <td><%= item.stock_quantity%></td>
+            <td><%= item.standard_inventory %></td>
+            <td><%= item.ordering_unit %></td>
+            <td><%=  %></td>
+            <td><%=  %></td>
+            <td><%= item.category_id %></td>
+            <td><%= item.place %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+<% end %>
+

@@ -1,0 +1,21 @@
+<%# render "shared/header"%>
+
+<%= form_for(:login, url: login_path) do |f| %>
+
+<%# render 'shared/error_messages', scope: :login %>
+
+<div class="field"> 
+  <%= f.label :name, "組織名" %><br>
+  <%= f.text_field :name %>
+</div>
+<div class="field"> 
+  <%= f.label :password, "パスワード" %><br>
+  <%= f.password_field :password %>
+</div>
+
+</div>
+<div class="organization-btn-contents">
+  <%= f.submit "ログイン" ,class:"new-btn" %>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
+</div>
+<% end %>

@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
-<<<<<<< Updated upstream
-=======
   before_action :set_organization, expect: :destroy
 
   def index
     @users = User.where(organization_id: params[:id])
   end
->>>>>>> Stashed changes
 
   def edit
   end
@@ -19,15 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
-<<<<<<< Updated upstream
-=======
   def destroy
 
     user = User.find(params[:id])
     user.delete
     redirect_to users_path(id: user.organization_id)
   end
-
+  
   def admin
     user = User.find(params[:id])
     if user.admin
@@ -39,11 +34,18 @@ class UsersController < ApplicationController
     render json:{ user: item }
   end
 
->>>>>>> Stashed changes
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :organization_id)
+  end
+
+  def set_organization
+    begin
+      @organization = Organization.find(params[:id])
+    rescue
+      @organization = Organization.find(current_user.organization_id)
+    end
   end
 
 end
