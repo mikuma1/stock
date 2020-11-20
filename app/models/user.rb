@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   belongs_to :organization
+  has_many :comsumptions
 end

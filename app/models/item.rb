@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :organization
+  has_meny :consumptions
 
   with_options presence: true do
     validates :category_id, :image
