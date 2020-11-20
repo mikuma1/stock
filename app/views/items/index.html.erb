@@ -31,8 +31,17 @@ index
             <td><%= item.stock_quantity%></td>
             <td><%= item.standard_inventory %></td>
             <td><%= item.ordering_unit %></td>
-            <td><%=  %></td>
-            <td><%=  %></td>
+            <td>
+            </td>
+            <td>
+              <%= form_with model: @consumption, url: consumptions_path, local: true do |f|%>
+                <div class="form-group">
+                  <%= f.text_field :quantity, size: "6x6" %>
+                </div>
+                <%= f.hidden_field :item_id, value: item.id %>
+                <%= f.submit "使用", class: 'btn btn-light' %>
+              <% end %>
+            </td>
             <td><%= item.category_id %></td>
             <td><%= item.place %></td>
           </tr>
