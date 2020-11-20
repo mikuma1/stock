@@ -4,6 +4,6 @@ class Consumption < ApplicationRecord
 
   with_options presence: true do
     validates :quantity, numericality: true 
-    validates :item, :user
+    validates :item_id, :user_id
   end
 end
