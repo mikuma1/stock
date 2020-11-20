@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_11_20_100732) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "puantity", null: false
+    t.integer "quantity", null: false
     t.bigint "item_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
