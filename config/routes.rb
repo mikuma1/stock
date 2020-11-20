@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :organizations, only: [:new, :create] do
     resources :items
   end
+  resources :consemptions, only: [:new, :create]
   get  '/login', to: 'login#new'
   post '/login', to: 'login#create'
   delete '/logout', to: 'login#destroy'
