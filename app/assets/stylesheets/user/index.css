@@ -69,3 +69,14 @@ table tr{
   font-size: 13px;
   width: 140px;
 }
+
+.right {
+  text-align: right;
+}
+
+.btn-small {
+  width: 40px;
+  height: 20px;
+  font-size: 13px;
+  padding: 0px;
+}

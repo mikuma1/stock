@@ -36,10 +36,10 @@ index
             <td>
               <%= form_with model: @consumption, url: consumptions_path, local: true do |f|%>
                 <div class="form-group">
-                  <%= f.text_field :quantity, size: "6x6" %>
+                  <%= f.text_field :quantity, placeholder: '個数',class: 'right', size: "6x6" %>
                 </div>
                 <%= f.hidden_field :item_id, value: item.id %>
-                <%= f.submit "使用", class: 'btn btn-light' %>
+                <%= f.submit "使用", class: 'btn btn-light btn-small' %>
               <% end %>
             </td>
             <td><%= item.category_id %></td>
