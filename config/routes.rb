@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :organizations, only: [:new, :create] do
     resources :items
   end
-  resources :consumptions, only: [:new, :create]
+  resources :consumptions, only: :create
+  resources :orders, only: :create
   get  '/login', to: 'login#new'
   post '/login', to: 'login#create'
   delete '/logout', to: 'login#destroy'
