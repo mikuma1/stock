@@ -45,6 +45,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def change
+    binding.pry
+    item = Item.find(params[:item][:item_id])
+    item.stock_quantity = params[:item][:stock_quantity]
+    item.save
+    redirect_to root_path(id: @organization.id)
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :info, :category_id, :url, :stock_quantity, :standard_inventory, :ordering_unit, :price, :place, :image, :organization_id)
