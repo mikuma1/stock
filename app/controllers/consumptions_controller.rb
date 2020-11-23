@@ -1,10 +1,11 @@
 class ConsumptionsController < ApplicationController
   def create
     item = Item.find(params[:consumption][:item_id])
-    item.stock_quantity -= params[:consumption][:quantity].to_f
-    item.save
     @consumption = Consumption.new(consumption_params)
-    @consumption.save
+    if @consumption.save
+      item.stock_quantity -= params[:consumption][:quantity].to_f
+      item.save
+    end
     redirect_to root_path
   end
   
