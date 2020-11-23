@@ -32,6 +32,13 @@ index
             <td><%= item.standard_inventory %></td>
             <td><%= item.ordering_unit %></td>
             <td>
+              <%= form_with model: @order, url: orders_path, local: true do |f|%>
+                <div class="form-group">
+                  <%= f.text_field :quantity, placeholder: '個数',class: 'right', size: "6x6" %>
+                </div>
+                <%= f.hidden_field :item_id, value: item.id %>
+                <%= f.submit "入庫", class: 'btn btn-light btn-small' %>
+              <% end %>
             </td>
             <td>
               <%= form_with model: @consumption, url: consumptions_path, local: true do |f|%>
