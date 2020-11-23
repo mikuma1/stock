@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :index, :destroy]
   get "users/:id", to: 'users#admin'
   resources :organizations, only: [:new, :create] do
-    resources :items
+    resources :items do
+      collection do
+        put 'change'
+      end
+    end
   end
   resources :consumptions, only: :create
   resources :orders, only: :create
