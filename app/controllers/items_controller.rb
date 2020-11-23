@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_organization_login
+  before_action :move_to_organization_login, expect: :index
   before_action :set_organization
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: :index
@@ -46,7 +46,6 @@ class ItemsController < ApplicationController
   end
 
   def change
-    binding.pry
     item = Item.find(params[:item][:item_id])
     item.stock_quantity = params[:item][:stock_quantity]
     item.save
