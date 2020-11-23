@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.where(organization_id: @organization.id)
     @consumption = Consumption.new
+    @order = Order.new
   end
 
   def  new
