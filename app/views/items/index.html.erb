@@ -15,9 +15,11 @@ index
           <th>在庫</th>
           <th>発注目安在庫数</th>
           <th>発注単位</th>
-          <th>入庫</th>
-          <th>出庫</th>
-          <th>カテゴリー</th>
+          <% if user_signed_in? %>
+            <th>入庫</th>
+            <th>出庫</th>
+          <% end %>
+          <!--<th>カテゴリー</th>-->
           <th>場所</th>
         </tr>
         <% @items.each do |item| %>
@@ -25,39 +27,47 @@ index
             <td><%= image_tag item.image.variant(resize: '200x100' ) %></td>
             <td>
             <%= item.name %><br>
-            <%= link_to '詳細', organization_item_path(organization_id: @organization.id, id: item.id)%>
+            <% if user_signed_in? %>
+              <%= link_to '詳細', organization_item_path(organization_id: @organization.id, id: item.id)%>
+            <% end %>
             </td>
             <td><%= link_to '発注画面へ', item.url, target: :_blank %></td>
             <td>
-              <%= form_with model: item, url: change_organization_items_path(organization_id: @organization.id), method: :put, local: true do |f|%>
-                <div class="form-group">
-                  <%= f.text_field :stock_quantity, placeholder: '個数',class: 'form-control right', size: "2.5x6", default: item.stock_quantity %>
-                </div>
-                <%= f.hidden_field :item_id, value: item.id %>
-                <%= f.submit "変更", class: 'btn btn-light btn-small' %>
+              <% if user_signed_in? %>
+                <%= form_with model: item, url: change_organization_items_path(organization_id: @organization.id), method: :put, local: true do |f|%>
+                  <div class="form-group">
+                    <%= f.text_field :stock_quantity, placeholder: '個数',class: 'form-control right', size: "2.5x6", default: item.stock_quantity %>
+                  </div>
+                  <%= f.hidden_field :item_id, value: item.id %>
+                  <%= f.submit "変更", class: 'btn btn-light btn-small' %>
+                <% end %>
+              <% else %>
+                <%= item.stock_quantity %>
               <% end %>
             </td>
             <td><%= item.standard_inventory %></td>
             <td><%= item.ordering_unit %></td>
-            <td>
-              <%= form_with model: @order, url: orders_path, local: true do |f|%>
-                <div class="form-group">
-                  <%= f.text_field :quantity, placeholder: '個数',class: 'form-control right', size: "2.5x6" %>
-                </div>
-                <%= f.hidden_field :item_id, value: item.id %>
-                <%= f.submit "入庫", class: 'btn btn-light btn-small' %>
-              <% end %>
-            </td>
-            <td>
-              <%= form_with model: @consumption, url: consumptions_path, local: true do |f|%>
-                <div class="form-group">
-                  <%= f.text_field :quantity, placeholder: '個数',class: 'form-control right', size: "2.5x6" %>
-                </div>
-                <%= f.hidden_field :item_id, value: item.id %>
-                <%= f.submit "使用", class: 'btn btn-light btn-small' %>
-              <% end %>
-            </td>
-            <td><%= item.category_id %></td>
+            <% if user_signed_in? %>
+              <td>
+                <%= form_with model: @order, url: orders_path, local: true do |f|%>
+                  <div class="form-group">
+                    <%= f.text_field :quantity, placeholder: '個数',class: 'form-control right', size: "2.5x6" %>
+                  </div>
+                  <%= f.hidden_field :item_id, value: item.id %>
+                  <%= f.submit "入庫", class: 'btn btn-light btn-small' %>
+                <% end %>
+              </td>
+              <td>
+                <%= form_with model: @consumption, url: consumptions_path, local: true do |f|%>
+                  <div class="form-group">
+                    <%= f.text_field :quantity, placeholder: '個数',class: 'form-control right', size: "2.5x6" %>
+                  </div>
+                  <%= f.hidden_field :item_id, value: item.id %>
+                  <%= f.submit "使用", class: 'btn btn-light btn-small' %>
+                <% end %>
+            <% end %>
+              </td>
+            <!--<td><%= item.category_id %></td>-->
             <td><%= item.place %></td>
           </tr>
         <% end %>

@@ -1,19 +1,19 @@
 <header class='top-page-header'>
     <ul class='lists-left'>
-      <% if !@organization.nil? %>
-      <li><%= link_to "STOCK", root_path(id: @organization.id), class:"icon" %></li>
-      <li><%= link_to "#{@organization.name}をログアウト", logout_path, method: :delete %></li>
+      <% if logged_in? || (!@organization.nil? && !@organization.id.nil?) %>
+        <li><%= link_to "STOCK!", root_path(id: @organization.id), class:"icon" %></li>
+        <li><%= link_to "#{@organization.name}をログアウト", logout_path, method: :delete %></li>
       <% else %>
-      <li class="icon">STOCK</li>
+        <li class="icon">STOCK!</li>
       <% end %>
     </ul>
     <ul class='lists-right'>
-      <% if user_signed_in? %>
+      <% if user_signed_in? && (logged_in? || (!@organization.nil? && !@organization.id.nil?)) %>
         <li><%= link_to current_user.name, edit_user_path(current_user), class: "user-name btn" %></li> 
-        <li><%= link_to 'ユーザーログアウト', destroy_user_session_path(id: @organization.id), method: :delete, class: "logout btn btn-outline-warning"%> </li> 
+        <li><%= link_to 'ユーザーログアウト', destroy_user_session_path, method: :delete, class: "logout btn btn-outline-warning"%> </li> 
         <li><%= link_to 'ユーザー一覧', users_path(id: @organization.id), class: "user-index btn btn-outline-warning"%> </li> 
         <li><%= link_to '消耗品登録', new_organization_item_path(organization_id: @organization.id), class: "item-new btn btn-outline-warning"%>
-      <% elsif !@organization.nil? %>
+      <% elsif logged_in? || (!@organization.nil? && !@organization.id.nil?)  %>
         <li><%= link_to 'ユーザーログイン', new_user_session_path(id: @organization.id), class: "login btn btn-outline-warning" %></li>
         <li><%= link_to 'ユーザー新規登録', new_user_registration_path(id: @organization.id), class: "sign-up btn btn-outline-warning" %></li>
       <% else %>
