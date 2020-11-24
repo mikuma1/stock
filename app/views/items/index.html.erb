@@ -1,7 +1,17 @@
-<% if @organization.nil? %>
-index
-<% elsif @items.nil? %>
-消耗品登録から消耗品を登録してください
+<% if !user_signed_in? %>
+  <div class='wrapper'>
+    <%= render "shared/header"%>
+    <div class=main>
+      <h3>ユーザーの新規登録またはログインしてください</h3>
+    </div>
+  </div>
+<% elsif @items.blank? %>
+  <div class='wrapper'>
+    <%= render "shared/header"%>
+    <div class=main>
+      <h3>消耗品登録から消耗品を登録してください</h3>
+    </div>
+  </div>
 <% else %>
   <div class='wrapper'>
     <%= render "shared/header"%>
@@ -11,10 +21,14 @@ index
         <tr>
           <th>画像</th>
           <th>名称</th>
-          <th>URL</th>
+          <% if can? :update, current_user %>
+            <th>URL</th>
+          <% end %>
           <th>在庫</th>
-          <th>発注目安在庫数</th>
-          <th>発注単位</th>
+          <% if can? :update, current_user %>
+            <th>発注目安在庫数</th>
+            <th>発注単位</th>
+          <% end %>
           <% if user_signed_in? %>
             <th>入庫</th>
             <th>出庫</th>
@@ -30,10 +44,12 @@ index
             <% if user_signed_in? %>
               <%= link_to '詳細', organization_item_path(organization_id: @organization.id, id: item.id)%>
             <% end %>
-            </td>
-            <td><%= link_to '発注画面へ', item.url, target: :_blank %></td>
-            <td>
-              <% if user_signed_in? %>
+            <% if can? :update, current_user %>
+              </td>
+              <td><%= link_to '発注画面へ', item.url, target: :_blank %></td>
+            <% end %>
+              <td>
+              <% if can? :update, current_user %>
                 <%= form_with model: item, url: change_organization_items_path(organization_id: @organization.id), method: :put, local: true do |f|%>
                   <div class="form-group">
                     <%= f.text_field :stock_quantity, placeholder: '個数',class: 'form-control right', size: "2.5x6", default: item.stock_quantity %>
@@ -45,8 +61,10 @@ index
                 <%= item.stock_quantity %>
               <% end %>
             </td>
-            <td><%= item.standard_inventory %></td>
-            <td><%= item.ordering_unit %></td>
+            <% if can? :update, current_user %>
+              <td><%= item.standard_inventory %></td>
+              <td><%= item.ordering_unit %></td>
+            <% end %>
             <% if user_signed_in? %>
               <td>
                 <%= form_with model: @order, url: orders_path, local: true do |f|%>
