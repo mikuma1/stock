@@ -30,6 +30,9 @@
 
   <div class="field">
     <%= f.hidden_field :organization_id, value: params[:id] %>
+    <% if User.find_by(organization_id: params[:id]).blank?%>
+      <%# f.hidden_field :admin, value: 1 %>
+    <% end %>
   </div>
 
   <div class="actions">

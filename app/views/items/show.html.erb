@@ -1,12 +1,19 @@
 <div class='wrapper'>
   <%= render "shared/header"%>
   <div class="main">
-
-      <%= link_to '編集', edit_organization_item_path(organization_id: @organization.id, id: @item.id), class: "btn btn-light" %>
-      <%= link_to '削除', organization_item_path(organization_id: @organization.id, id: @item.id), method: :delete, class: "btn btn-light" %>
-      <div class="item-image">
+    <div class="container">
+      <div>
         <%= image_tag @item.image.variant(resize: '150x150' ) %>
       </div>
+    </div>
+    <div class="container">
+      <div>
+        <%= link_to '編集', edit_organization_item_path(organization_id: @organization.id, id: @item.id), class: "btn btn-light" %>
+      </div>
+      <div>
+        <%= link_to '削除', organization_item_path(organization_id: @organization.id, id: @item.id), method: :delete, class: "btn btn-light" %>
+      </div>
+    </div>
     <table>
       <tr>
         <th>名称</th>
