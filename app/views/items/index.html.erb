@@ -1,15 +1,8 @@
-<% if !user_signed_in? %>
+<% if @items.blank? %>
   <div class='wrapper'>
     <%= render "shared/header"%>
     <div class=main>
-      <h3>ユーザーの新規登録またはログインしてください</h3>
-    </div>
-  </div>
-<% elsif @items.blank? %>
-  <div class='wrapper'>
-    <%= render "shared/header"%>
-    <div class=main>
-      <h3>消耗品登録から消耗品を登録してください</h3>
+      <h3>ユーザーログインまたは新規登録を行い、消耗品を登録してください</h3>
     </div>
   </div>
 <% else %>
