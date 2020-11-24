@@ -21,9 +21,9 @@
           <% if can? :update, current_user %>
             <th>発注目安在庫数</th>
             <th>発注単位</th>
+            <th>入庫</th>
           <% end %>
           <% if user_signed_in? %>
-            <th>入庫</th>
             <th>出庫</th>
           <% end %>
           <!--<th>カテゴリー</th>-->
@@ -34,7 +34,7 @@
             <td><%= image_tag item.image.variant(resize: '200x100' ) %></td>
             <td>
             <%= item.name %><br>
-            <% if user_signed_in? %>
+            <% if can? :update, current_user %>
               <%= link_to '詳細', organization_item_path(organization_id: @organization.id, id: item.id)%>
             <% end %>
             <% if can? :update, current_user %>
@@ -57,8 +57,6 @@
             <% if can? :update, current_user %>
               <td><%= item.standard_inventory %></td>
               <td><%= item.ordering_unit %></td>
-            <% end %>
-            <% if user_signed_in? %>
               <td>
                 <%= form_with model: @order, url: orders_path, local: true do |f|%>
                   <div class="form-group">
@@ -68,6 +66,8 @@
                   <%= f.submit "入庫", class: 'btn btn-light btn-small' %>
                 <% end %>
               </td>
+            <% end %>
+            <% if user_signed_in? %>
               <td>
                 <%= form_with model: @consumption, url: consumptions_path, local: true do |f|%>
                   <div class="form-group">
