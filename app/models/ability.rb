@@ -2,17 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :manage, :login
-    can :manage, :session
+    can :read, :all
+    can :manage, [:user, :order, :consumption, :login, :session, :registration]
 
     user ||= User.new 
       if user.admin?
          can :manage, :all
-       else
-         can :manage, :user
-         can :read, :item
-         can :manage, :order
-         can :manage, :consumption
-       end
+      end
   end
 end
