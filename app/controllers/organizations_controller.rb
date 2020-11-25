@@ -8,7 +8,7 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
-    if log_in(@organization)
+    if @organization.save
       redirect_to root_path(id: @organization.id)
     else
       render :new

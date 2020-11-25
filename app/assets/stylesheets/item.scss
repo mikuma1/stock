@@ -1,3 +1,10 @@
-// Place all the styles related to the item controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.container div {
+  margin: 20px 10px;
+}
+
