@@ -63,9 +63,9 @@ https://stock2020app.herokuapp.com/
 
 
 # 実装した機能についてのGIFと説明
-![(管理者)消耗品一覧画面](https://gyazo.com/b95d90977e95568c3ca9fde774b87a90)
-![(使用者)消耗品一覧画面](https://gyazo.com/5e1fb4a5ed8b30727c8c70d5c8cc6ff0)
-![(管理者)ユーザー 一覧画面](https://gyazo.com/f513aff329ef3a51632373fc7018a246)
+![(管理者)消耗品一覧画面](https://user-images.githubusercontent.com/72071661/100399854-b6ccc480-3097-11eb-9eed-50d70739dc8b.png)
+![(使用者)消耗品一覧画面](https://user-images.githubusercontent.com/72071661/100399894-df54be80-3097-11eb-8616-16a9058b7173.png)
+![(管理者)ユーザー 一覧画面](https://user-images.githubusercontent.com/72071661/100399922-00b5aa80-3098-11eb-9944-88349f1a2d9c.png)
 
 # 工夫したポイント
 * 権限機能を作成し、使用者は最低限の機能のみにしました。
@@ -94,5 +94,5 @@ https://stock2020app.herokuapp.com/
   * RSpec
 
 # データベース設計
-![ER図](https://gyazo.com/c6a1c39bc0871bd3039c0de95da87ed5)
+![ER図](https://user-images.githubusercontent.com/72071661/100399961-29d63b00-3098-11eb-9090-013350bb6ddd.png)
 
