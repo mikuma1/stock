@@ -63,9 +63,14 @@ https://stock2020app.herokuapp.com/
 
 
 # 実装した機能についてのGIFと説明
-![(管理者)消耗品一覧画面](https://user-images.githubusercontent.com/72071661/100399854-b6ccc480-3097-11eb-9eed-50d70739dc8b.png)
-![(使用者)消耗品一覧画面](https://user-images.githubusercontent.com/72071661/100399894-df54be80-3097-11eb-8616-16a9058b7173.png)
-![(管理者)ユーザー 一覧画面](https://user-images.githubusercontent.com/72071661/100399922-00b5aa80-3098-11eb-9944-88349f1a2d9c.png)
+* (管理者)消耗品一覧画面
+<img src="https://user-images.githubusercontent.com/72071661/100399854-b6ccc480-3097-11eb-9eed-50d70739dc8b.png" width=50%>
+
+* (使用者)消耗品一覧画面
+<img src="https://user-images.githubusercontent.com/72071661/100399894-df54be80-3097-11eb-8616-16a9058b7173.png" width=50%>
+
+* (管理者)ユーザー 一覧画面
+<img src="https://user-images.githubusercontent.com/72071661/100399922-00b5aa80-3098-11eb-9944-88349f1a2d9c.png" width=50%>
 
 # 工夫したポイント
 * 権限機能を作成し、使用者は最低限の機能のみにしました。
