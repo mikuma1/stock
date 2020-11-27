@@ -88,11 +88,7 @@ https://stock2020app.herokuapp.com/
 * バージョン管理
   * Git/Github
 * 本番環境
-  * AWS(EC2,S3)
-  * unicorn
-  * Nginx
-  * Capistrano
-  * mariaDB
+  * heroku
 * 開発環境
   * MySQL
 * テスト
