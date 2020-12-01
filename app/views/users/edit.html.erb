@@ -1,33 +1,24 @@
-<%= render "shared/header"%>
+<div class="wrapper">
+  <%= render "shared/header"%>
+  <div class="main">
+    <%= form_with model: current_user, local: true do |f|%>
 
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--left account-page__header'>
-      <h2>アカウントの編集</h2>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn' %>
-    </div>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: current_user, local: true do |f|%>
-        <div class='field'>
-          <div class='field-label'>
+    <h2>アカウントの編集</h2>
+    <%= render 'shared/error_messages', model: @user %>
+    <div class="container">
+      <div class="form-group">
+        <div class="field"> 
             <%= f.label :name%>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
-          </div>
+            <%= f.text_field :name, autofocus: true, class:"form-control" %>
         </div>
         <div class='field'>
-          <div class='field-label'>
             <%= f.label :email%>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email%>
-          </div>
+            <%= f.email_field :email, class:"form-control" %>
         </div>
-        <div class='actions'>
-          <%= f.submit "Update", class: 'btn'%>
+        <div class='user-edit-btn-contents'>
+          <%= f.submit "変更", class: 'new-btn y-btn btn btn-outline-warning'%>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn c-btn btn-outline-warning' %>
+          <%= link_to 'もどる', root_path, class:"back-btn btn c-btn btn-outline-warning" %>
         </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+      </div>
+    <% end %>

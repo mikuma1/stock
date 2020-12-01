@@ -6,12 +6,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
     if current_user.update(user_params)
       redirect_to root_path
     else
+      @user = current_user
       render :edit
     end
   end
