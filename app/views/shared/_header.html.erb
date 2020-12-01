@@ -1,25 +1,48 @@
-<header class='top-page-header'>
-    <ul class='lists-left'>
-      <% if logged_in? || (!@organization.nil? && !@organization.id.nil?) %>
-        <li><%= link_to "STOCK!", root_path(id: @organization.id), class:"icon" %></li>
-      <% else %>
-        <li class="icon">STOCK!</li>
-      <% end %>
-    </ul>
-    <ul class='lists-right'>
+  <nav class="navbar navbar-expand-sm navbar-light">
       <% if user_signed_in? && (logged_in? || (!@organization.nil? && !@organization.id.nil?)) %>
-        <li><%= link_to current_user.name, edit_user_path(current_user), class: "user-name btn" %></li> 
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout btn btn-outline-warning"%> </li> 
-        <% if can? :undate, current_user%>
-          <li><%= link_to 'ユーザー一覧', users_path(id: @organization.id), class: "user-index btn btn-outline-warning"%> </li> 
-          <li><%= link_to '消耗品登録', new_organization_item_path(organization_id: @organization.id), class: "item-new btn btn-outline-warning"%>
-        <% end %>
-      <% elsif logged_in? || (!@organization.nil? && !@organization.id.nil?)  %>
-        <li><%= link_to 'ユーザーログイン', new_user_session_path(id: @organization.id), class: "login btn btn-outline-warning" %></li>
-        <li><%= link_to 'ユーザー新規登録', new_user_registration_path(id: @organization.id), class: "sign-up btn btn-outline-warning" %></li>
+        <%= link_to "STOCK!", root_path(id: @organization.id), class:"icon navbar-brand" %>
+        <%= link_to current_user.name, edit_user_path(current_user), class: "navbar-brand user-name btn" %>
+      <% elsif logged_in? || (!@organization.nil? && !@organization.id.nil?) %>
+        <%= link_to "STOCK!", root_path(id: @organization.id), class:"icon navbar-brand" %>
       <% else %>
-        <li><%= link_to '組織にログイン', login_path, class: "login btn btn-outline-warning" %></li>
-        <li><%= link_to '組織新規登録', new_organization_path, class: "sign-up btn btn-outline-warning" %></li>
+        <div class="icon navbar-brand">STOCK!</div>
       <% end %>
-    </ul>
-</header>
+        <button class="navbar-toggler" type="button"
+          data-toggle="collapse"
+          data-target="#navmenu1"
+          aria-controls="navmenu1"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="font-size : medium"></span>
+         </button>
+      <% if user_signed_in? && (logged_in? || (!@organization.nil? && !@organization.id.nil?)) %>
+        <div class="collapse navbar-collapse" id="navmenu1">
+          <% if can? :update, current_user%>
+            <div class="navbar-nav">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "lnav-item nav-link"%> 
+              <%= link_to 'ユーザー一覧', users_path(id: @organization.id), class: "nav-item nav-link"%> 
+              <%= link_to '消耗品登録', new_organization_item_path(organization_id: @organization.id), class: "nav-item nav-link"%>
+            </div>
+          <% else%>
+            <div class="navbar-nav">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "lnav-item nav-link"%> 
+            </div>
+          <% end %>
+        </div>
+      <% elsif logged_in? || (!@organization.nil? && !@organization.id.nil?)  %>
+        <div class="collapse navbar-collapse" id="navmenu1">
+          <div class="navbar-nav">
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "lnav-item nav-link"%>
+            <%= link_to 'ユーザーログイン', new_user_session_path(id: @organization.id), class: "nav-item nav-link" %>
+            <%= link_to 'ユーザー新規登録', new_user_registration_path(id: @organization.id), class: "nav-item nav-link" %>
+          </div>
+        </div>
+      <% else %>
+        <div class="collapse navbar-collapse" id="navmenu1">
+          <div class="navbar-nav">
+            <%= link_to '組織にログイン', login_path, class: "nav-item nav-link" %>
+            <%= link_to '組織新規登録', new_organization_path, class: "nav-item nav-link" %>
+          </div>
+        </div>
+      <% end %>
+  </nav>
