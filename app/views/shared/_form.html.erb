@@ -1,99 +1,112 @@
+
     <%= form_with model: [@organization, @item], local: true do |f| %>
 
     <%= render 'shared/error_messages', model: @item %>
-
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        出品画像
-        <span class="indispensable">必須</span>
+<div class="outer-container">
+  <div class="inner-container">
+    <div class="form-group">
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          消耗品画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
       </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
+
+      <div class="new-items">
+        <div class="weight-bold-text">
+          名称
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40", class:"form-control" %>
+      </div>
+
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          URL
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :url, class:"items-text", id:"item-url", placeholder:"消耗品のURL" ,maxlength:"300", class:"form-control" %>
+      </div>
+
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :category_id, class:"items-text", id:"item-category", placeholder:"カテゴリーの選択" ,maxlength:"40", class:"form-control" %>
+      </div>
+
+
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          消耗品の説明
+        </div>
+        <%= f.text_area :info, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000", class:"form-control" %>
       </div>
     </div>
+  </div>
 
-    <div class="new-items">
-      <div class="weight-bold-text">
-        名称
-        <span class="indispensable">必須</span>
+  <div class="inner-container">
+    <div class="form-group">
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          在庫数
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :stock_quantity, class:"items-text", id:"item-stock-quantity", placeholder:"在庫数の入力" ,maxlength:"6", class:"form-control" %>
       </div>
-      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-    </div>
 
-    <div class="items-explain">
-      <div class="weight-bold-text">
-        URL
-        <span class="indispensable">必須</span>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          基準在庫
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :standard_inventory, class:"items-text", id:"item-standard-inventory", placeholder:"在庫の最低数" ,maxlength:"6", class:"form-control" %>
       </div>
-      <%= f.text_area :url, class:"items-text", id:"item-url", placeholder:"消耗品のURL" ,maxlength:"300" %>
-    </div>
 
-    <div class="items-explain">
-      <div class="weight-bold-text">
-        カテゴリー
-        <span class="indispensable">必須</span>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          発注単位
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :ordering_unit, class:"items-text", id:"item-sordering-unit", placeholder:"１回の発注単位" ,maxlength:"6", class:"form-control" %>
       </div>
-      <%= f.text_field :category_id, class:"items-text", id:"item-category", placeholder:"カテゴリーの選択" ,maxlength:"40" %>
-    </div>
 
-
-    <div class="items-explain">
-      <div class="weight-bold-text">
-        消耗品の説明
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          価格
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :price, class:"items-text", id:"item-price", placeholder:"消耗品の価格" ,maxlength:"10", class:"form-control" %>
       </div>
-      <%= f.text_area :info, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
-    </div>
 
-    <div class="items-explain">
-      <div class="weight-bold-text">
-        在庫数
-        <span class="indispensable">必須</span>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          場所
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :place, class:"items-text", id:"item-place", placeholder:"保管場所" ,maxlength:"40", class:"form-control" %>
       </div>
-      <%= f.text_field :stock_quantity, class:"items-text", id:"item-stock-quantity", placeholder:"在庫数の入力" ,maxlength:"6" %>
     </div>
-
-    <div class="items-explain">
-      <div class="weight-bold-text">
-        基準在庫
-        <span class="indispensable">必須</span>
+  <div class="form-group">
+      <div class="field">
+        <%= f.hidden_field :organization_id, value: params[:organization_id] %>
       </div>
-      <%= f.text_field :standard_inventory, class:"items-text", id:"item-standard-inventory", placeholder:"在庫の最低数" ,maxlength:"6" %>
-    </div>
 
-    <div class="items-explain">
-      <div class="weight-bold-text">
-        発注単位
-        <span class="indispensable">必須</span>
+      <div class="new-btn-contents">
+        <%= f.submit "登録" ,class:"new-btn y-btn btn btn-outline-warning" %>
+        <%=link_to 'もどる', root_path, class:"back-btn btn c-btn" %>
       </div>
-      <%= f.text_field :ordering_unit, class:"items-text", id:"item-sordering-unit", placeholder:"１回の発注単位" ,maxlength:"6" %>
-    </div>
+  </div>
+  </div>
+</div>
 
-    <div class="items-explain">
-      <div class="weight-bold-text">
-        価格
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_field :price, class:"items-text", id:"item-price", placeholder:"消耗品の価格" ,maxlength:"10" %>
-    </div>
 
-    <div class="items-explain">
-      <div class="weight-bold-text">
-        場所
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_field :place, class:"items-text", id:"item-place", placeholder:"保管場所" ,maxlength:"40" %>
-    </div>
-
-    <div class="field">
-      <%= f.hidden_field :organization_id, value: params[:organization_id] %>
-     </div>
-
-    <div class="sell-btn-contents">
-      <%= f.submit "登録" ,class:"new-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
 
     <% end %>

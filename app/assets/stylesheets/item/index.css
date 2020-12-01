@@ -1,13 +1,11 @@
 .main {
-  background-image: url("top.png");
-  background-size: cover;
   font-size: medium;
-  height: calc(100vh - 8vh);
-  background-color:rgba(255,255,255,0.7);
-  background-blend-mode:lighten;
+  background-color:#e3f6f5;
+  padding-top: 20px;
+  min-height: calc(100vh - 88px);
 }
 
 .wrapper {
-  min-height: 100vh;
   position: relative;
+  background-color:#bae8e8;
 }
