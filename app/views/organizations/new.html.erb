@@ -1,23 +1,29 @@
-<%= render "shared/header"%>
+<div class="wrapper">
+  <%= render "shared/header"%>
+  <div class="main">
+    <%= form_with model: @organization, local: true do |f| %>
 
-<%= form_with model: @organization, local: true do |f| %>
-
-<%= render 'shared/error_messages', model: @organization %>
-
-<div class="field"> 
-  <%= f.label :name, "組織名" %><br>
-  <%= f.text_field :name %>
+    <h2>組織新規登録</h2>
+    <%= render 'shared/error_messages', model: @organization %>
+    <div class="container">
+      <div class="form-group">
+        <div class="field"> 
+          <%= f.label :name, "組織名" %><br>
+          <%= f.text_field :name, class:"form-control" %>
+        </div>
+        <div class="field"> 
+          <%= f.label :password, "パスワード" %><br>
+          <%= f.password_field :password, class:"form-control" %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード再入力" %><br>
+          <%= f.password_field :password_confirmation, class:"form-control" %>
+        </div>
+        <div class="organization-btn-contents">
+          <%= f.submit "登録" ,class:"new-btn y-btn btn btn-outline-warning" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
-<div class="field"> 
-  <%= f.label :password, "パスワード" %><br>
-  <%= f.password_field :password %>
-</div>
-<div class="field">
-  <%= f.label :password_confirmation, "パスワード再入力" %><br>
-  <%= f.password_field :password_confirmation %>
-</div>
-<div class="organization-btn-contents">
-  <%= f.submit "登録" ,class:"new-btn" %>
-  <%=link_to 'もどる', root_path, class:"back-btn" %>
-</div>
-<% end %>

@@ -1,14 +1,12 @@
-.main {
-  padding:10px
-}
-
 h2 {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   position: relative;
-  padding: 1rem 2rem calc(1rem + 8px);
+  padding: 1rem 0.5rem;
   background: #fff;
-  margin: 0 30vw 10px;
+  margin: 10px auto;
+  min-width: 200px;
+  max-width: 500px;
 }
 
 h2:before {
@@ -21,18 +19,35 @@ h2:before {
   border: 4px solid #000;
 }
 
+.sc-table {
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.sc-table::-webkit-scrollbar {
+  overflow-x: scroll;
+  white-space: nowrap;
+  width: 10px;
+  height: 10px;
+}
+
+.sc-table::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: 0 0 4px #aaa inset;
+}
+
+.sc-table::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #ffd803;
+}
+
 table {
   border-collapse: collapse;
-  margin: 0 auto;
   padding: 0;
-  width: 90vw;
-  max-height: 90vh;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   box-shadow: 0 0 15px -6px #00000073;
-  word-wrap: break-word;
-  overflow-x: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 
 table tr {
@@ -41,7 +56,7 @@ table tr {
 
 table th,
 table td {
-  padding: 20px 0;
+  padding: 20px 10px;
   border-bottom: 1px solid #eee;
   max-width: 80vw;
 }
@@ -54,6 +69,7 @@ table  th {
   background-color: #ffd803;
   color:#272343;
   text-align: center;
+  min-width: 80px;
 }
 
 table tr{
@@ -79,4 +95,9 @@ table tr{
   height: 20px;
   font-size: 13px;
   padding: 0px;
+}
+
+.organization-btn-contents {
+  display: flex;
+  align-items: center;
 }
