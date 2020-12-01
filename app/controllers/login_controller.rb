@@ -1,6 +1,6 @@
 class LoginController < ApplicationController
   def new
-    
+    @organization = Organization.new
   end
   
   def create
@@ -9,6 +9,7 @@ class LoginController < ApplicationController
       log_in organization
       redirect_to root_path(id: organization.id)
     else
+      @organization = organization
       render :new
     end
   end
