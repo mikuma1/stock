@@ -101,3 +101,15 @@ table tr{
   display: flex;
   align-items: center;
 }
+
+.main {
+  font-size: medium;
+  background-color:#e3f6f5;
+  padding-top: 20px;
+  min-height: calc(100vh - 88px);
+}
+
+.wrapper {
+  position: relative;
+  background-color:#bae8e8;
+}
