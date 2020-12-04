@@ -19,12 +19,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
     user = User.find(params[:id])
     user.delete
     redirect_to users_path(id: user.organization_id)
   end
-  
+
   def admin
     user = User.find(params[:id])
     if user.admin
@@ -33,7 +32,7 @@ class UsersController < ApplicationController
       user.update(admin: true)
     end
     item = User.find(params[:id])
-    render json:{ user: item }
+    render json: { user: item }
   end
 
   private
@@ -43,11 +42,8 @@ class UsersController < ApplicationController
   end
 
   def set_organization
-    begin
-      @organization = Organization.find(params[:id])
-    rescue
-      @organization = Organization.find(current_user.organization_id)
-    end
+    @organization = Organization.find(params[:id])
+  rescue StandardError
+    @organization = Organization.find(current_user.organization_id)
   end
-
 end

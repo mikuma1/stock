@@ -8,8 +8,9 @@ class OrdersController < ApplicationController
     end
     redirect_to root_path
   end
-  
+
   private
+
   def order_params
     params.require(:order).permit(:quantity, :item_id).merge(user_id: current_user.id)
   end

@@ -3,11 +3,9 @@ class Ability
 
   def initialize(user)
     can :read, :all
-    can :manage, [:user, :organization, :order, :consumption, :login, :session, :registration]
+    can :manage, %i[user organization order consumption login session registration]
 
-    user ||= User.new 
-      if user.admin?
-         can :manage, :all
-      end
+    user ||= User.new
+    can :manage, :all if user.admin?
   end
 end

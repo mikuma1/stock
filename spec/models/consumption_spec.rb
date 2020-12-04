@@ -20,11 +20,10 @@ RSpec.describe Consumption, type: :model do
         expect(@consumption.errors.full_messages).to include("Quantity can't be blank")
       end
       it 'quantityが数字以外の場合登録できない' do
-        @consumption.quantity = "a"
+        @consumption.quantity = 'a'
         @consumption.valid?
-        expect(@consumption.errors.full_messages).to include("Quantity is not a number")
+        expect(@consumption.errors.full_messages).to include('Quantity is not a number')
       end
     end
   end
 end
-
