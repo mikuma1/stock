@@ -4,9 +4,7 @@ module LoginHelper
   end
 
   def current_organization
-    if session[:oraganization_id]
-      @current_organization ||= Organization.find_by(id: session[:organization_id])
-    end
+    @current_organization ||= Organization.find_by(id: session[:organization_id]) if session[:oraganization_id]
   end
 
   def current_organization?(organization)
@@ -21,5 +19,4 @@ module LoginHelper
     session.delete(:organization_id)
     @current_organization = nil
   end
-
 end

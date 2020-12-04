@@ -8,8 +8,9 @@ class ConsumptionsController < ApplicationController
     end
     redirect_to root_path
   end
-  
+
   private
+
   def consumption_params
     params.require(:consumption).permit(:quantity, :item_id).merge(user_id: current_user.id)
   end

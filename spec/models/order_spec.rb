@@ -20,9 +20,9 @@ RSpec.describe Order, type: :model do
         expect(@order.errors.full_messages).to include("Quantity can't be blank")
       end
       it 'quantityが数字以外の場合登録できない' do
-        @order.quantity = "a"
+        @order.quantity = 'a'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Quantity is not a number")
+        expect(@order.errors.full_messages).to include('Quantity is not a number')
       end
     end
   end

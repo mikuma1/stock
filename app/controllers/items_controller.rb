@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_organization_login, expect: :index
   before_action :set_organization
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: :index
 
   def index
@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @order = Order.new
   end
 
-  def  new
+  def new
     @item = Item.new
   end
 
@@ -23,11 +23,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @item.update(item_params)
@@ -53,6 +51,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :info, :category_id, :url, :stock_quantity, :standard_inventory, :ordering_unit, :price, :place, :image, :organization_id)
   end
@@ -66,7 +65,7 @@ class ItemsController < ApplicationController
       redirect_to login_path
     end
   end
-  
+
   def set_item
     @item = Item.find(params[:id])
   end
@@ -74,5 +73,4 @@ class ItemsController < ApplicationController
   def move_to_organization_login
     redirect_to login_path unless current_organization?(@organization)
   end
-
 end

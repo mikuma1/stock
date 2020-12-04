@@ -11,7 +11,7 @@ RSpec.describe Organization, type: :model do
         expect(@organization).to be_valid
       end
     end
-    
+
     context '新規登録がうまくいかないとき' do
       it 'nameが空の場合登録できない' do
         @organization.name = nil

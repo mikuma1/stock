@@ -1,6 +1,5 @@
 class OrganizationsController < ApplicationController
-  def index
-  end
+  def index; end
 
   def new
     @organization = Organization.new
@@ -16,8 +15,8 @@ class OrganizationsController < ApplicationController
   end
 
   private
+
   def organization_params
     params.require(:organization).permit(:name, :password, :password_confirmation)
   end
-  
 end
