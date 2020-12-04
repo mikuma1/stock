@@ -52,7 +52,7 @@ jobs:
 
       - run:
           name: Rubocop
-          command: rubocop -a
+          command: bundle exec rubocop
 
       - run:
           name: run tests
