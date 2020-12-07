@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.6.5-node-browsers
+      - image: circleci/ruby:2.6.6-node-browsers
         environment:
           - BUNDLER_VERSION: 2.0.2
           - RAILS_ENV: 'test'
@@ -64,7 +64,7 @@ jobs:
             sudo gem install bundler
             sudo gem install rspec
             sudo gem install rspec-core
-            bundle exec rspec \
+            docker-compose run web rspec  \
               --format progress \
               --out /tmp/test-results/rspec.xml \
               --format progress \
