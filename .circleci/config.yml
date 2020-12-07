@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.6.6-node-browsers
+      - image: circleci/ruby:2.6.5-node-browsers
         environment:
           - BUNDLER_VERSION: 2.0.2
           - RAILS_ENV: 'test'
@@ -55,24 +55,26 @@ jobs:
           command: bundle exec rubocop
 
       - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
-
-            sudo gem install bundler
-            sudo gem install rspec
-            sudo gem install rspec-core
-            docker-compose run web rspec  \
-              --format progress \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+            test:
+              machine:
+                image: circleci/classic:edge
+              steps:
+                - checkout
+                - run:
+                    name: docker-compose build
+                    command: docker-compose build
+                - run:
+                    name: docker-compose up
+                    command: docker-compose up -d
+                - run:
+                    name: sleep for waiting launch db
+                    command: sleep 1
+                - run:
+                    name: rails db:create and db:migrate
+                    command: docker-compose run web rails db:create db:migrate
+                - run:
+                    name: rspec
+                    command: docker-compose run web rspec
+                - run:
+                    name: docker-compose down
+                    command: docker-compose down
