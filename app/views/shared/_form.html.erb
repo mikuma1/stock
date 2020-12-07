@@ -39,7 +39,7 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :category_id, class:"items-text", id:"item-category", placeholder:"カテゴリーの選択" ,maxlength:"40", class:"form-control" %>
+         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"form-control", id:"item-category"}) %>
       </div>
 
 
