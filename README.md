@@ -5,7 +5,7 @@ STOCK!
 会社、個人で使える消耗品の管理サイトです。
 
 # URL
-https://stock2020app.herokuapp.com/
+https://stock-app.work
 
 # テストアカウント
 ### Basic認証
@@ -15,31 +15,24 @@ https://stock2020app.herokuapp.com/
 * name: 株式会社STOCK
 * password: qqq111
 ### 管理者ユーザーアカウント
-* email: sample@sample.com
+* email: admin@sample.com
 * password: qqq111
 ### 使用者ユーザーアカウント
-* email: sample2@sample.com
+* email: not-admin@sample.com
 * password: qqq111
 
 # 機能一覧
 * 組織
-  * 登録
-  * ログイン
-  * 編集
+  * 登録、ログイン
 * ユーザー
-  * 登録
-  * ログイン
+  * 登録、ログイン、編集、削除
   * 一覧
-  * 編集
-  * 削除
-  * 管理者権限管理
+  * 管理者権限管理(Ajax)
 * 消耗品
-  * 登録
-  * ログイン
-  * 編集
-  * 一覧
-  * 詳細
-  * 削除
+  * 登録、ログイン。編集、削除
+  * 一覧、詳細
+  * 在庫変更
+  * 閲覧権限（cancanccan）
 * 使用記録
   * 登録
 * 入庫記録
@@ -88,12 +81,13 @@ https://stock2020app.herokuapp.com/
 * バージョン管理
   * Git/Github
 * 本番環境
-  * heroku
+  * AWS(EC2, VPC, RDS, Route53, ACM, ALB, S3)
 * 開発環境
+  * Docker/docker-compose
   * MySQL
 * テスト
   * RSpec
+  * rubocop
 
 # データベース設計
 ![ER図](https://user-images.githubusercontent.com/72071661/100399961-29d63b00-3098-11eb-9090-013350bb6ddd.png)
-
