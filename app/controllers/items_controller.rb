@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    @items = Item.where(organization_id: @organization.id)
+    @items = Item.where(organization_id: @organization.id).order(category_id: 'ASC')
     @consumption = Consumption.new
     @order = Order.new
   end
