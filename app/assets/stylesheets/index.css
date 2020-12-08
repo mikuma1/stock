@@ -107,6 +107,7 @@ table tr{
   background-color:#e3f6f5;
   padding-top: 20px;
   min-height: calc(100vh - 88px);
+  padding: 0 0 20px;
 }
 
 .wrapper {
