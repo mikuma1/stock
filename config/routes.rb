@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :consumptions, only: :create
-  resources :orders, only: [:create, :index]
+  resources :orders, only: :create
   get  '/login', to: 'login#new'
   post '/login', to: 'login#create'
   delete '/logout', to: 'login#destroy'
