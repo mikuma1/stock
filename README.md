@@ -8,9 +8,6 @@ STOCK!
 https://stock-app.work
 
 # テストアカウント
-### Basic認証
-* 🆔: admin
-* password: 2222
 ### 組織アカウント
 * name: 株式会社STOCK
 * password: qqq111
@@ -40,7 +37,6 @@ https://stock-app.work
 
 # 実装予定の機能
   * 消耗品検索
-  * カテゴリー分け
   * 使用分析(組織全体、ユーザー毎)
 
 # 目指した課題解決
@@ -67,7 +63,7 @@ https://stock-app.work
 
 # 工夫したポイント
 * 権限機能を作成し、使用者は最低限の機能のみにしました。
-* クリック数を減らすため、消耗品一覧画面で在庫補正、入庫、使用ができるように実装しました。
+* クリック数を減らすため、消耗品一覧画面で在庫補正、入庫記録、使用記録ができるように実装しました。
 * 発注する手間をなくすため、１クリックで発注画面に遷移する仕様にしました。
 
 # 使用技術
@@ -87,7 +83,7 @@ https://stock-app.work
   * MySQL
 * テスト
   * RSpec
-  * rubocop
+  * RuboCop
 
 # データベース設計
 ![ER図](https://user-images.githubusercontent.com/72071661/100399961-29d63b00-3098-11eb-9090-013350bb6ddd.png)
