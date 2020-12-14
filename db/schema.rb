@@ -33,38 +33,17 @@ ActiveRecord::Schema.define(version: 2020_11_20_100732) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-  create_table 'consumptions', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
-    t.integer 'quantity', null: false
-    t.bigint 'item_id', null: false
-    t.bigint 'user_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['item_id'], name: 'index_consumptions_on_item_id'
-    t.index ['user_id'], name: 'index_consumptions_on_user_id'
-=======
->>>>>>> Stashed changes
   create_table "consumptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "quantity", null: false
     t.boolean "approval", default: false, null: false
     t.bigint "item_id", null: false
     t.bigint "user_id", null: false
-<<<<<<< Updated upstream
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_consumptions_on_item_id"
-    t.index ["user_id"], name: "index_consumptions_on_user_id"
-=======
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_consumptions_on_item_id"
     t.index ["organization_id"], name: "index_consumptions_on_organization_id"
     t.index ["user_id"], name: "index_consumptions_on_user_id"
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -116,30 +95,12 @@ ActiveRecord::Schema.define(version: 2020_11_20_100732) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< Updated upstream
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "consumptions", "items"
-=======
-<<<<<<< Updated upstream
-  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
-  add_foreign_key 'consumptions', 'items'
-  add_foreign_key 'consumptions', 'users'
-  add_foreign_key 'items', 'organizations'
-  add_foreign_key 'orders', 'items'
-  add_foreign_key 'orders', 'users'
-  add_foreign_key 'users', 'organizations'
-=======
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "consumptions", "items"
   add_foreign_key "consumptions", "organizations"
->>>>>>> Stashed changes
   add_foreign_key "consumptions", "users"
   add_foreign_key "items", "organizations"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
   add_foreign_key "users", "organizations"
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 end
