@@ -1,0 +1,43 @@
+<div class='wrapper'>
+  <%= render "shared/header"%>
+  <div class=main>
+    <h2>使用一覧</h2>
+    <div class="sc-table">
+      <table>
+        <tr>
+          <th>名前</th>
+          <th>消耗品</th>
+          <th>使用個数</th>
+          <th>承認</th>
+        </tr>
+        <% if @consumptions.nil? %>
+          <tr>
+            <td>使用登録をしてください</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% else %>
+          <% @consumptions.each do |consumption| %>
+            <tr id="consumption">
+              <td><%= consumption.user.name %></td>
+              <td><%= consumption.item.name %></td>
+              <td><%= consumption.quantity %></td>
+              <% unless consumption.approval %>
+                <td id="approval">
+                  <div id=<%= consumption.id %>>
+                    <input type="button" value="承認" class="btn btn-outline-secondary approval-btn" id=<%= consumption.id %> consumption-approval=<%= consumption.approval %>>
+                  </div>
+                </td>
+              <% else %>
+                <td id="approval">
+                  承認済
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
