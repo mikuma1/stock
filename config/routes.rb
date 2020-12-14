@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :consumptions, only: :create
+  resources :consumptions, only: %i[index create]
+  get 'consumptions/:consumption_id', to: 'consumptions#approval'
   resources :orders, only: :create
   get  '/login', to: 'login#new'
   post '/login', to: 'login#create'
