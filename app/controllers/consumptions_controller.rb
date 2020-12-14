@@ -25,7 +25,7 @@ class ConsumptionsController < ApplicationController
   private
 
   def consumption_params
-    params.require(:consumption).permit(:quantity, :item_id, :organization_id).merge(user_id: current_user.id)
+    params.require(:consumption).permit(:quantity, :item_id).merge(user_id: current_user.id, organization_id: params[:id])
   end
 
   def set_organization
