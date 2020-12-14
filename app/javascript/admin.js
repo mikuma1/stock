@@ -3,7 +3,7 @@ function admin() {
   admins.forEach(function (admin) {
     if (admin.getAttribute("data-load") != null) {
       return null;
-    }
+    };
     admin.setAttribute("data-load", "true");
     admin.addEventListener("click", () => {
       const userId = admin.getAttribute("user-id");
