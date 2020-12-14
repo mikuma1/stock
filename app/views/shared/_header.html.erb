@@ -22,6 +22,7 @@
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "lnav-item nav-link"%> 
               <%= link_to 'ユーザー一覧', users_path(id: @organization.id), class: "nav-item nav-link"%> 
               <%= link_to '消耗品登録', new_organization_item_path(organization_id: @organization.id), class: "nav-item nav-link"%>
+              <%= link_to '使用一覧', consumptions_path(organization_id: @organization.id), class: "nav-item nav-link" %>
             </div>
           <% else%>
             <div class="navbar-nav">

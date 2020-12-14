@@ -41,7 +41,11 @@
           </thead>
             <tbody>
           <% @items.each do |item| %>
-            <tr>
+          <% if item.standard_inventory - item.stock_quantity > 0 %>
+            <tr data-status="true">
+          <% else %>
+            <tr data-status="false">
+          <% end %>
               <td><%= image_tag item.image.variant(resize: '200x100' ) %></td>
               <td>
               <%= item.name %><br>
@@ -85,6 +89,7 @@
                       <%= f.text_field :quantity, placeholder: '個数',class: 'form-control right', size: "2.5x6" %>
                     </div>
                     <%= f.hidden_field :item_id, value: item.id %>
+                    <%= f.hidden_field :organization_id, value: @organization.id %>
                     <%= f.submit "使用", class: 'btn btn-light btn-small' %>
                   <% end %>
               <% end %>
