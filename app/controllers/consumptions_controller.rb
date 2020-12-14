@@ -1,5 +1,5 @@
 class ConsumptionsController < ApplicationController
-  before_action :set_organization, only: :index
+  before_action :set_organization, only: [:index, :create]
 
   def index
     @consumptions = Consumption.where(organization_id: @organization.id)
@@ -25,7 +25,7 @@ class ConsumptionsController < ApplicationController
   private
 
   def consumption_params
-    params.require(:consumption).permit(:quantity, :item_id).merge(user_id: current_user.id, organization_id: params[:id])
+    params.require(:consumption).permit(:quantity, :item_id).merge(user_id: current_user.id, organization_id: @organization.id, approval: false)
   end
 
   def set_organization
