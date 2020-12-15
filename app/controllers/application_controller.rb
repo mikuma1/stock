@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-      root_path(id: @organization_id)
+    login_path
   end
 end
