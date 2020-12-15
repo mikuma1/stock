@@ -19,21 +19,21 @@
         <div class="collapse navbar-collapse" id="navmenu1">
           <% if can? :update, current_user%>
             <div class="navbar-nav">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "lnav-item nav-link"%> 
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-item nav-link"%> 
               <%= link_to 'ユーザー一覧', users_path(id: @organization.id), class: "nav-item nav-link"%> 
               <%= link_to '消耗品登録', new_organization_item_path(organization_id: @organization.id), class: "nav-item nav-link"%>
               <%= link_to '使用一覧', consumptions_path(organization_id: @organization.id), class: "nav-item nav-link" %>
             </div>
           <% else%>
             <div class="navbar-nav">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "lnav-item nav-link"%> 
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-item nav-link"%> 
             </div>
           <% end %>
         </div>
       <% elsif logged_in? || (!@organization.nil? && !@organization.id.nil?)  %>
         <div class="collapse navbar-collapse" id="navmenu1">
           <div class="navbar-nav">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "lnav-item nav-link"%>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-item nav-link"%>
             <%= link_to 'ユーザーログイン', new_user_session_path(id: @organization.id), class: "nav-item nav-link" %>
             <%= link_to 'ユーザー新規登録', new_user_registration_path(id: @organization.id), class: "nav-item nav-link" %>
           </div>
