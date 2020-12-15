@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name organization_id admin])
   end
+
+  def after_sign_out_path_for(resource_or_scope)
+      root_path(id: @organization_id)
+  end
 end
