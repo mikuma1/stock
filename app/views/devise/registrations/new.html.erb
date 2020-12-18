@@ -3,8 +3,8 @@
   <div class="main">
     <h2>ユーザー新規登録</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <div class="container">
+    <div class="container">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <div class="form-group">
           <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -47,5 +47,19 @@
         <%= render "devise/shared/links" %>
       </div>
     </div>
+      <div class="container">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.hidden_field :email, value: "admin@sample.com" %>
+          <%= f.hidden_field :password, value: "qqq111" %>
+          <%= f.submit "テストログイン（管理者）", class:"new-btn y-btn btn btn-outline-warning", style: "width: auto;" %>
+        <% end %>
+      </div>
+      <div class="container">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.hidden_field :email, value: "not-admin@sample.com" %>
+          <%= f.hidden_field :password, value: "qqq111" %>
+          <%= f.submit "テストログイン（使用者）", class:"new-btn y-btn btn btn-outline-warning", style: "width: auto;" %>
+        <% end %>
+      </div>
   </div>
 </div>
