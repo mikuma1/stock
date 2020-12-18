@@ -1,24 +1,31 @@
 <div class="wrapper">
   <%= render "shared/header"%>
   <div class="main">
-    <%= form_for(:login, url: login_path) do |f| %>
 
     <h2>組織ログイン</h2>
     <div class="container">
-      <div class="form-group">
-        <div class="field"> 
-          <%= f.label :name, "組織名" %><br>
-          <%= f.text_field :name, class:"form-control" %>
+      <%= form_for(:login, url: login_path) do |f| %>
+        <div class="form-group">
+          <div class="field"> 
+            <%= f.label :name, "組織名" %><br>
+            <%= f.text_field :name, class:"form-control" %>
+          </div>
+          <div class="field"> 
+            <%= f.label :password, "パスワード" %><br>
+            <%= f.password_field :password, class:"form-control" %>
+          </div>
+          <div class="organization-btn-contents">
+            <%= f.submit "ログイン" ,class:"new-btn y-btn btn btn-outline-warning" %>
+          </div>
         </div>
-        <div class="field"> 
-          <%= f.label :password, "パスワード" %><br>
-          <%= f.password_field :password, class:"form-control" %>
-        </div>
-        <div class="organization-btn-contents">
-          <%= f.submit "ログイン" ,class:"new-btn y-btn btn btn-outline-warning" %>
-        </div>
-      </div>
+      <% end %>
     </div>
-    <% end %>
+    <div class="container">
+      <%= form_for(:login, url:login_path) do |f| %>
+        <%= f.hidden_field :name, value: "株式会社STOCK" %>
+        <%= f.hidden_field :password, value: "qqq111" %>
+        <%= f.submit "テストログイン", class:"new-btn y-btn btn btn-outline-warning", style: "width: auto; margin-right: 45px;" %>
+      <% end %>
+    </div>
   </div>
 </div>
