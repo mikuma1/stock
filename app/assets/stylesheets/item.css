@@ -37,3 +37,26 @@ span {
   }
 }
 
+@media screen and (min-width: 671px) {
+  .navbar-expand-custom {
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+  }
+
+  .navbar-expand-custom .navbar-toggler {
+      display: none;
+  }
+
+  .navbar-expand-custom .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+  }
+
+  .navbar-expand-custom .navbar-nav {
+      flex-direction: row;
+  }
+
+  .navbar-expand-custom .navbar-toggler {
+      display: none;
+  }
+}

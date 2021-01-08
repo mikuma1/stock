@@ -5,7 +5,7 @@ h2 {
   padding: 1rem 0.5rem !important;
   background: #fff;
   margin: 10px auto !important;
-  min-width: 200px;
+  min-width: auto;
   max-width: 500px;
 }
 
